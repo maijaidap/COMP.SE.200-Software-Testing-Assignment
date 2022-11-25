@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "test-coveralls": "nyc npm run mocha && shx cat ./coverage/lcov.info | node ./bin/coveralls.js --verbose",
-    "test": "npm run lint && npm run mocha"
+    "test": "npm run lint && npm run mocha",
+    "test:cover": "react-scripts test --coverage src"
   },
   "bin": {
     "coveralls": "./bin/coveralls.js"
