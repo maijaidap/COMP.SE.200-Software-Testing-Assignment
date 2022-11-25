@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
+    "mocha": "_mocha -b -R spec",
     "test-coveralls": "npm run mocha && shx cat ./coverage/lcov.info | node ./bin/coveralls.js --verbose"
   },
   "bin": {
