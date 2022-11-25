@@ -7,7 +7,8 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test-coveralls": "nyc npm run mocha && shx cat ./coverage/lcov.info | node ./bin/coveralls.js --verbose"
   },
   "bin": {
     "coveralls": "./bin/coveralls.js"
