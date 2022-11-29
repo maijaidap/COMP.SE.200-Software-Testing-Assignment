@@ -7,8 +7,11 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "test-coveralls": "jest --coverage && coveralls < coverage/lcov.info",
-    "test": "jest"
+    "test": "jest --config=./src/jest.config.json",
+    "verbose": "jest --config=./src/jest.config.json --verbose",
+    "coverage": "jest --config=./src/jest.config.json --coverage",
+    "watch": "jest --config=./src/jest.config.json --watch",
+    "watchAll": "jest --config=./src/jest.config.json --watchAll"
   },
   "bin": {
     "coveralls": "./bin/coveralls.js"
