@@ -7,7 +7,7 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "test-coveralls": "jest --coverage && coveralls < coverage/lcov.info",
+    "test-coveralls": "jest --coverage",
     "test": "jest"
   },
   "bin": {
