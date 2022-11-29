@@ -26,6 +26,8 @@
     "ts-jest": "^29.0.3"
   },
   "jest": {
+	"coverageDirectory": "./coverage/",
+    "collectCoverage": true,
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
     }
