@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "test-coveralls": "shx cat ./coverage/lcov.info | node ./bin/coveralls.js"
+    "test-coveralls": "jest --coverage && coveralls < coverage/lcov.info"
   },
   "bin": {
     "coveralls": "./bin/coveralls.js"
