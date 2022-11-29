@@ -3,21 +3,31 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "author": "",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
-    "test-coveralls": "jest --coverage && coveralls < coverage/lcov.info"
+    "test-coveralls": "jest --coverage && coveralls < coverage/lcov.info",
+    "test": "jest"
   },
   "bin": {
     "coveralls": "./bin/coveralls.js"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "babel-jest": "^29.3.1",
     "coveralls": "^3.1.1",
+    "cross-env": "^7.0.3",
     "jest": "^29.3.1"
   },
   "dependencies": {
-    "shx": "^0.3.4"
+    "@testing-library/jest-dom": "^5.16.5",
+    "shx": "^0.3.4",
+    "ts-jest": "^29.0.3"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   }
 }
