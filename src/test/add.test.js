@@ -17,6 +17,6 @@ test("should return correct format if one is undefined", () => {
 })
 
 test("should convert strings to integers and return value", () => {
-   expect(add("1", "2")).toBe(expectedValue);
-   expect(add("1", 2)).toBe(expectedValue);
+   expect(add("1", "2")).toBe("12");
+   expect(add("1", 2)).toBe("12");
 })
