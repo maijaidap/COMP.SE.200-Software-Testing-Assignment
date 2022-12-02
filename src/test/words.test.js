@@ -13,4 +13,8 @@ it('string of words without separators into an array of size 1', () => {
     expect(words("Potatotomatocucumber")).toEqual(['Potatotomatocucumber'])
 });
 
-/* TO-DO pattern handling test */
+it('word to match an undefined pattern', () => { 
+    expect(words('potato', undefined)).toEqual(['potato'])
+});
+
+/* TO-DO pattern handling tests */
