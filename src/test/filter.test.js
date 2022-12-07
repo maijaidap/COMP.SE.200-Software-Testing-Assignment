@@ -10,10 +10,10 @@ it('filter array of string that has a certain value, should return array of filt
     expect(filter(vegetables, ({ isRed }) => isRed)).toEqual( [{"isRed": true, "vegetable": "tomato"}])
 });
 
-it('filter array of string that is null, should return empty array', () => { 
+it('filter array of string that is empty, should return an empty array', () => { 
     expect(filter([])).toEqual([[]])
 });
 
-it('filter array of string that is null, should return empty array', () => { 
+it('filter array of string that is null, should return an empty array', () => { 
     expect(filter(null)).toEqual([[]])
 });
