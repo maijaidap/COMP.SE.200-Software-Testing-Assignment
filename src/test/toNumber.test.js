@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom'
 import toNumber from '../toNumber'
 
+
 it('string and number input should be converted to number', () => { 
     expect(toNumber(1.1)).toBe(1.1)
     expect(toNumber("1.1")).toBe(1.1)
@@ -28,19 +29,25 @@ it('whitespace before or after in a string with number should result a number', 
 
 it('binary values should be converted into a number', () => {
     expect(toNumber("0b101")).toBe(5)
+    expect(toNumber("0b102")).toBe(NaN)
 });
 
 it('signed hexadecimals should be converted into a number', () => {
     expect(toNumber("0xC")).toBe(12)
+    expect(toNumber("-0xC")).toBe(NaN)
+    expect(toNumber("0xFF")).toBe(255)
     expect(toNumber("0xG")).toBe(NaN)
+    expect(toNumber("0xQQ")).toBe(NaN)
 });
 
 it('octal string values should be converted into a number', () => {
-    expect(toNumber("02")).toBe(2)
+    expect(toNumber("0o2")).toBe(2)
+    expect(toNumber("0o9")).toBe(NaN)
 });
 
 it('Objects, Functions and Symbols should return NaN', () => {
     expect(toNumber(Function('abc'))).toBe(NaN)
     expect(toNumber(Object('abc'))).toBe(NaN)
     expect(toNumber(Symbol("abc"))).toBe(NaN)
+    
 });
