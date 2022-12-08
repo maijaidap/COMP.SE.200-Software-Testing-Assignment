@@ -29,6 +29,9 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
+	"coveragePathIgnorePatterns" : [
+      "<rootDir>/src/*.internal"
+    ],
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
     }
