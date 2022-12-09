@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import isEmpty from '../isEmpty'
 
 
-test("should return as is if already a string", () => {
+test("check null values", () => {
     expect(isEmpty(null)).not.toBeFalsy;
  });
 
@@ -28,7 +28,7 @@ test("should return as is if already a string", () => {
     expect(isEmpty(prototype)).toBeFalsy();
  })
 
- test("check boolean & imteger values", () => {
+ test("check boolean & integer values", () => {
     expect(isEmpty(true)).not.toBeFalsy();
     expect(isEmpty(1)).not.toBeFalsy();
  })

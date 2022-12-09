@@ -1,21 +1,22 @@
 import '@testing-library/jest-dom'
 import castArray from '../castArray'
 
-const expectedArray = ["item1"];
 
-test("added item should be casted as array", () => {
-   expect(castArray("item1")).toContain("item1");   
-});
 
 test("casted array should match expected array", () => {
-    expect(castArray("item1")).toEqual(expect.arrayContaining(expectedArray));
+    expect(castArray("item1")).toEqual(["item1"]);
+    expect(castArray({'item': 'item1'})).toEqual([{'item': 'item1'}])
+    expect(castArray(1)).toEqual([1]);
+    expect(castArray()).toEqual([]);
 });
 
 test("should return array as-is if already array", () => {
-    expect(castArray(["item1"])).toContain("item1");
+    expect(castArray(["item1"])).toEqual(["item1"]);
  });
 
+
  test("should cast undefined item as array", () => {
-    expect(castArray(undefined)).toEqual(expect.arrayContaining([undefined]));
+    expect(castArray(undefined)).toEqual([undefined]);
+    expect(castArray(null)).toEqual([null]);
  })
 
