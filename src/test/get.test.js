@@ -8,13 +8,13 @@ const priceTable = {'item':[{
                         ]};
 
 test("a price should be fetched", () => {
-    expect(get(priceTable,'item[0]')).toBeDefined();
-    expect(get('item', '0', 'price')).toBeDefined();
+    expect(get(priceTable,'item[0].price')).toBeDefined();
+    expect(get(priceTable, ['item', '0', 'price'])).toBeDefined();
  });
 
 test("price should match the expected price", () => {
-    expect(get(priceTable,'item[0]')).toEqual({"price":10});
-    expect(get('item', '0', 'price')).toEqual({"price":10});
+    expect(get(priceTable,'item[0].price')).toEqual(10);
+    expect(get(priceTable, ['item', '0', 'price'])).toEqual(10);
 })
 
 test("undefined priceTable should return undefined", () => {
