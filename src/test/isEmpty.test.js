@@ -1,44 +1,34 @@
 import '@testing-library/jest-dom'
 import isEmpty from '../isEmpty'
 
-const addedItem = {
-    name: 'item1',
-    price: [10],
-    description: null,
-    discounts: 0
-    };
 
-const category = new Map();
-category.set(addedItem, 'fruit');
+test("should return as is if already a string", () => {
+    expect(isEmpty(null)).not.toBeFalsy;
+ });
 
-const mandatoryFields = { 
-    allFilled: 'yes',
-    isTrue(){
-        return this.allFilled;
-    },
-};
+ test("check array, string, Buffer, TypedArray & arguments",() => {
+    expect(isEmpty([1, 2, 3])).toBeFalsy();
+    expect(isEmpty('abc')).toBeFalsy();
+    expect(isEmpty(Buffer.from('abc'))).toBeFalsy();
+    expect(isEmpty(new Int8Array(5))).toBeFalsy();
+    expect(isEmpty(function() { return arguments }())).not.toBeFalsy();
+ });
 
-const checkFields = Object.create(mandatoryFields);
+ test("check empty Maps and Sets", () => {
+    expect(isEmpty(new Map())).not.toBeFalsy();
+    expect(isEmpty(new Set())).not.toBeFalsy();
+ })
 
-test("item exists  should not be empty -> return false", () => {
-    expect(isEmpty(addedItem)).toBeFalsy();
-    expect(isEmpty(mandatoryFields)).toBeFalsy();
-})
+ const object = {a:1};
+ const prototype = Object.create(object);
+ prototype.a = 2;
 
-test("name, price inserted correctly, should not be empty --> return false", () => {
-    expect(isEmpty(addedItem.name)).toBeFalsy();
-    expect(isEmpty(addedItem.price)).toBeFalsy();
-})
+ test("check JQuery objects & object prototypes", () => {
+    expect(isEmpty(object)).toBeFalsy();
+    expect(isEmpty(prototype)).toBeFalsy();
+ })
 
-test("discounts & description dont exist, should be emtpy -> return true", () => {
-    expect(isEmpty(addedItem.discounts)).not.toBeFalsy();
-    expect(isEmpty(addedItem.description)).not.toBeFalsy();
-})
-
-test("existing item is mapped to a category, should not be empty --> return false", () => {
-    expect(isEmpty(category)).toBeFalsy();
-})
-
-test("all mandatory fields are filled, should return yes and not be empty --> return true", () => {   
-    expect(isEmpty(checkFields)).not.toBeFalsy();
-})
+ test("check boolean & imteger values", () => {
+    expect(isEmpty(true)).not.toBeFalsy();
+    expect(isEmpty(1)).not.toBeFalsy();
+ })

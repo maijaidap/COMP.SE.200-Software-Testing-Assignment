@@ -29,7 +29,7 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
-	"coveragePathIgnorePatterns" : [
+    "coveragePathIgnorePatterns": [
       "<rootDir>/src/*.internal"
     ],
     "transform": {
